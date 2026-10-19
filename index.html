@@ -1,0 +1,1004 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marco Montanari — Research</title>
+<meta name="description" content="Publications, talks and research of Marco Montanari: digital archaeology, open historical geodata, open knowledge, smart cities.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf8f4; --surface: #ffffff; --ink: #1d1b18; --muted: #6b655c; --line: #e6e1d8;
+    --accent: #9a4a1c; --accent-soft: #f4e6dc; --code-bg: #f3f0ea;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #161513; --surface: #1e1d1a; --ink: #ece8e1; --muted: #a39d93; --line: #2f2d29;
+      --accent: #e39a6b; --accent-soft: #3a2a20; --code-bg: #24221f;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #161513; --surface: #1e1d1a; --ink: #ece8e1; --muted: #a39d93; --line: #2f2d29;
+    --accent: #e39a6b; --accent-soft: #3a2a20; --code-bg: #24221f;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 Inter, system-ui, sans-serif; }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 16px; }
+  header.top { padding: 64px 0 32px; border-bottom: 1px solid var(--line); }
+  h1, h2, h3 { font-family: Fraunces, Georgia, serif; font-weight: 600; line-height: 1.2; }
+  h1 { font-size: clamp(2.2rem, 6vw, 3.2rem); margin: 0 0 8px; letter-spacing: -0.01em; }
+  .lede { font-size: 1.15rem; color: var(--muted); margin: 0 0 24px; max-width: 60ch; }
+  .ids { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; list-style: none; }
+  .ids a { display: inline-block; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); text-decoration: none; color: var(--ink); font-size: 0.9rem; }
+  .ids a:hover { border-color: var(--accent); color: var(--accent); }
+  nav.toc { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+  nav.toc .wrap { display: flex; gap: 20px; overflow-x: auto; padding-top: 12px; padding-bottom: 12px; }
+  nav.toc a { color: var(--muted); text-decoration: none; font-weight: 500; white-space: nowrap; font-size: 0.95rem; }
+  nav.toc a:hover { color: var(--accent); }
+  section { padding: 48px 0 8px; }
+  h2 { font-size: 1.8rem; margin: 0 0 20px; display: flex; align-items: baseline; gap: 12px; }
+  h2 .count { font: 500 0.9rem Inter, sans-serif; color: var(--muted); }
+  .themes { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .theme { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
+  .theme h3 { font-size: 1.1rem; margin: 0 0 6px; }
+  .theme p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+  ol.pubs { list-style: none; padding: 0; margin: 0; }
+  .pub { display: grid; grid-template-columns: 56px 1fr; gap: 12px; padding: 18px 0; border-top: 1px solid var(--line); }
+  .pub:first-child { border-top: 0; }
+  .pub-year { font-family: Fraunces, Georgia, serif; color: var(--accent); font-size: 1.05rem; padding-top: 1px; }
+  .pub-title { margin: 0 0 4px; font-weight: 600; }
+  .pub-meta { margin: 0 0 10px; color: var(--muted); font-size: 0.93rem; }
+  .pub-meta strong { color: var(--ink); font-weight: 600; }
+  .pub-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 0.88rem; }
+  .pub-actions a { margin-right: 4px; word-break: break-all; }
+  .chip { font: 500 0.82rem Inter, sans-serif; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 4px 10px; cursor: pointer; }
+  .chip:hover, .chip[aria-expanded="true"] { border-color: var(--accent); color: var(--accent); }
+  .chip.done { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); }
+  .chip.primary { background: var(--accent); color: var(--bg); border-color: var(--accent); padding: 8px 14px; font-size: 0.9rem; }
+  .bib { margin-top: 10px; }
+  pre { margin: 0 0 8px; background: var(--code-bg); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; overflow-x: auto; font: 0.8rem/1.5 "JetBrains Mono", ui-monospace, monospace; white-space: pre-wrap; word-break: break-word; }
+  .allbib pre { max-height: 420px; overflow-y: auto; }
+  .bar { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+  .bar a.chip { text-decoration: none; display: inline-block; padding: 8px 14px; font-size: 0.9rem; }
+  footer { padding: 48px 0 64px; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--line); margin-top: 48px; }
+  .theme-toggle { position: absolute; top: 16px; right: 16px; }
+  @media (max-width: 520px) {
+    header.top { padding-top: 56px; }
+    .pub { grid-template-columns: 1fr; gap: 2px; }
+  }
+</style>
+</head>
+<body>
+<button type="button" class="chip theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">◐</button>
+
+<header class="top">
+  <div class="wrap">
+    <h1>Marco Montanari</h1>
+    <p class="lede">Software architect and researcher working where informatics meets the humanities: open historical geodata, digital archaeology, open knowledge and smart-city systems. Co-founder and President of Open History Map.</p>
+    <ul class="ids">
+      <li><a href="https://orcid.org/0000-0001-5026-6083">ORCID 0000-0001-5026-6083</a></li>
+      <li><a href="https://github.com/sirmmo">GitHub</a></li>
+      <li><a href="https://figshare.com/authors/Marco_Montanari/17620416">Figshare</a></li>
+      <li><a href="https://www.wikidata.org/wiki/Q55399707">Wikidata</a></li>
+      <li><a href="https://it.wikipedia.org/wiki/Utente:Mmo">Wikipedia</a></li>
+      <li><a href="https://www.linkedin.com/in/montanarim">LinkedIn</a></li>
+      <li><a href="https://www.openhistorymap.org">Open History Map</a></li>
+    </ul>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Sections">
+  <div class="wrap">
+    <a href="#research">Research</a>
+    <a href="#papers">Papers</a>
+    <a href="#talks">Talks &amp; media</a>
+    <a href="#bibtex">BibTeX</a>
+    <a href="#about">About</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <section id="research">
+    <h2>Research</h2>
+    <div class="themes">
+      <div class="theme">
+        <h3>Open History Map</h3>
+        <p>An open, collaborative platform for historical and archaeological geodata, mapping the past through time and space. Running since 2014.</p>
+      </div>
+      <div class="theme">
+        <h3>Digital archaeology &amp; heritage</h3>
+        <p>WebGIS for cultural heritage, contextualising 3D model archives, quantitative studies of Roman entertainment buildings, participatory public history.</p>
+      </div>
+      <div class="theme">
+        <h3>Open knowledge</h3>
+        <p>Wikipedia and wiki platforms in archaeology, Semantic MediaWiki data integration, open-data ecosystems and edutainment.</p>
+      </div>
+      <div class="theme">
+        <h3>Smart cities &amp; digital twins</h3>
+        <p>City sensing from electric micromobility traces and interconnected urban networks through GlassBox digital twins, in collaboration with the University of Bologna.</p>
+      </div>
+      <div class="theme">
+        <h3>Geo-aware AI</h3>
+        <p>Semantic grounding for geospatial AI agents (GeoBard) and knowledge representation for historical data.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="papers">
+    <h2>Papers <span class="count">10 peer-reviewed</span></h2>
+    <ol class="pubs">
+      <li class="pub" data-year="2025">
+        <div class="pub-year">2025</div>
+        <div class="pub-body">
+          <p class="pub-title">Interconnecting Urban Networks: A Novel Approach to Digital Twins Through GlassBox Adaptation</p>
+          <p class="pub-meta">Costagliola, A., <strong>Montanari, M.</strong>, Bellavista, P.<span class="sep"> · </span><em>Proceedings of the 14th International Conference on Smart Cities and Green ICT Systems</em></p>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.5220/0013495100003953" rel="noopener">doi:10.5220/0013495100003953</a>
+            <button type="button" class="chip" data-toggle="bib-Costagliola_2025" aria-expanded="false">BibTeX</button>
+            <button type="button" class="chip" data-copy-text="Costagliola, A., Montanari, M., Bellavista, P. (2025). Interconnecting Urban Networks: A Novel Approach to Digital Twins Through GlassBox Adaptation. Proceedings of the 14th International Conference on Smart Cities and Green ICT Systems. https://doi.org/10.5220/0013495100003953">Copy citation</button>
+          </div>
+          <div class="bib" id="bib-Costagliola_2025" hidden>
+            <pre><code>@inproceedings{Costagliola_2025, title={Interconnecting Urban Networks: A Novel Approach to Digital Twins Through GlassBox Adaptation}, url={http://dx.doi.org/10.5220/0013495100003953}, DOI={10.5220/0013495100003953}, booktitle={Proceedings of the 14th International Conference on Smart Cities and Green ICT Systems}, publisher={SCITEPRESS - Science and Technology Publications}, author={Costagliola, Andrea and Montanari, Marco and Bellavista, Paolo}, year={2025}, pages={193–204} }</code></pre>
+            <button type="button" class="chip copy-bib" data-copy-from="bib-Costagliola_2025">Copy BibTeX</button>
+          </div>
+        </div>
+      </li>
+      <li class="pub" data-year="2024">
+        <div class="pub-year">2024</div>
+        <div class="pub-body">
+          <p class="pub-title">Engaging the public: reviving history through the Social Simulacra model in participatory Public History projects</p>
+          <p class="pub-meta">Gigli, L., <strong>Montanari, M.</strong>, Marsicano, L.<span class="sep"> · </span><em>Archeologia e Calcolatori</em></p>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.19282/ac.35.2.2024.21" rel="noopener">doi:10.19282/ac.35.2.2024.21</a>
+            <button type="button" class="chip" data-toggle="bib-gigli_montanari_marsicano_2024" aria-expanded="false">BibTeX</button>
+            <button type="button" class="chip" data-copy-text="Gigli, L., Montanari, M., Marsicano, L. (2024). Engaging the public: reviving history through the Social Simulacra model in participatory Public History projects. Archeologia e Calcolatori. https://doi.org/10.19282/ac.35.2.2024.21">Copy citation</button>
+          </div>
+          <div class="bib" id="bib-gigli_montanari_marsicano_2024" hidden>
+            <pre><code>@article{gigli_montanari_marsicano_2024, address={IT}, title={Engaging the public: reviving history through the Social Simulacra model in participatory Public History projects}, volume={35}, ISSN={1120-6861, 2385-1953}, url={https://doi.org/10.19282/ac.35.2.2024.21}, DOI={10.19282/ac.35.2.2024.21}, abstractNote={Public history and participatory history initiatives are rapidly gaining momentum as they aim to democratize the historical narrative, involving communities and individuals in shaping their own historical experiences. This paper introduces a novel approach to these accomplishments by harnessing the power of the Social Simulacra Model. The model offers an innovative and participatory framework for public history projects, enabling individuals to actively engage with and contribute to historical narratives. By integrating the Social Simulacra Model into public history, this paper seeks to transform the traditional approach to historical storytelling. This model facilitates the creation of immersive, interactive historical simulations that enable participants to become part of the historical landscape. It fosters a deeper connection between individuals and the past by allowing them to take on roles, explore social dynamics, and make decisions within historical contexts. This paper also illustrates the potential of the Social Simulacra Model in enriching public history and participatory history projects by offering a new dimension of engagement and interaction with the past. It paves the way for a more inclusive, engaging, and participatory approach to historical storytelling, bridging the gap between academic history and public engagement.}, number={2}, journal={Archeologia e Calcolatori}, publisher={Edizioni All’Insegna del Giglio s.a.s.}, author={Gigli, Lorenzo and Montanari, Marco and Marsicano, Lucia}, year={2024}, pages={197–202} }</code></pre>
+            <button type="button" class="chip copy-bib" data-copy-from="bib-gigli_montanari_marsicano_2024">Copy BibTeX</button>
+          </div>
+        </div>
+      </li>
+      <li class="pub" data-year="2024">
+        <div class="pub-year">2024</div>
+        <div class="pub-body">
+          <p class="pub-title">Entertainment buildings in the Roman empire: a quantitative approach</p>
+          <p class="pub-meta">Marsicano, L., <strong>Montanari, M.</strong><span class="sep"> · </span><em>Archeologia e Calcolatori</em></p>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.19282/ac.35.2.2024.07" rel="noopener">doi:10.19282/ac.35.2.2024.07</a>
+            <button type="button" class="chip" data-toggle="bib-marsicano_montanari_2024" aria-expanded="false">BibTeX</button>
+            <button type="button" class="chip" data-copy-text="Marsicano, L., Montanari, M. (2024). Entertainment buildings in the Roman empire: a quantitative approach. Archeologia e Calcolatori. https://doi.org/10.19282/ac.35.2.2024.07">Copy citation</button>
+          </div>
+          <div class="bib" id="bib-marsicano_montanari_2024" hidden>
+            <pre><code>@article{marsicano_montanari_2024, address={IT}, title={Entertainment buildings in the Roman empire: a quantitative approach}, volume={35}, ISSN={1120-6861, 2385-1953}, url={https://doi.org/10.19282/ac.35.2.2024.07}, DOI={10.19282/ac.35.2.2024.07}, abstractNote={The project features the creation of a webGIS containing heterogeneous data about entertainment buildings in the whole Roman Empire: stadiums, circuses, theaters, and amphitheaters. Information available in earlier studies have been integrated with more recent historical information, modern maps, and satellite data. This geo-database of the Roman structures gives access to information such as localization, name, country, if there are any archaeological remains and if the monument is still visible. The results of the presented work are useful to 1) analyze the relationship between buildings and surrounding lands, 2) perform advanced hypothesis about the accessibility to the structures or the role of these type of buildings in the urbanistic context, 3) understand relationship between entertainment and society and 4) identify concentrations of structures in certain regions. This research is mostly focused on the study of satellite images, published and historical sources. A substantial level of attention has been dedicated to the reusability and availability of the collected data.}, number={2}, journal={Archeologia e Calcolatori}, publisher={Edizioni All’Insegna del Giglio s.a.s.}, author={Marsicano, Lucia and Montanari, Marco}, year={2024}, pages={55–62} }</code></pre>
+            <button type="button" class="chip copy-bib" data-copy-from="bib-marsicano_montanari_2024">Copy BibTeX</button>
+          </div>
+        </div>
+      </li>
+      <li class="pub" data-year="2024">
+        <div class="pub-year">2024</div>
+        <div class="pub-body">
+          <p class="pub-title">Simplifying contextualization of 3D model archives in webGIS: 3DModelCommons</p>
+          <p class="pub-meta"><strong>Montanari, M.</strong>, Marsicano, L.<span class="sep"> · </span><em>Archeologia e Calcolatori</em></p>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.19282/ac.35.2.2024.27" rel="noopener">doi:10.19282/ac.35.2.2024.27</a>
+            <button type="button" class="chip" data-toggle="bib-montanari_marsicano_2024" aria-expanded="false">BibTeX</button>
+            <button type="button" class="chip" data-copy-text="Montanari, M., Marsicano, L. (2024). Simplifying contextualization of 3D model archives in webGIS: 3DModelCommons. Archeologia e Calcolatori. https://doi.org/10.19282/ac.35.2.2024.27">Copy citation</button>
+          </div>
+          <div class="bib" id="bib-montanari_marsicano_2024" hidden>
+            <pre><code>@article{montanari_marsicano_2024, address={IT}, title={Simplifying contextualization of 3D model archives in webGIS: 3DModelCommons}, volume={35}, ISSN={1120-6861, 2385-1953}, url={https://doi.org/10.19282/ac.35.2.2024.27}, DOI={10.19282/ac.35.2.2024.27}, abstractNote={This paper presents a transformative approach that allows for the utilization of existing 3D models from diverse sources within a geographic context. It introduces the concept of external metadata, which describes these models, making them searchable, accessible, and seamlessly intergrated in webGIS environments using Three.js and MapLibre GL. This paper addresses the demand for the reuse of three-dimensional data representation in the geospatial domain and acknowledges the wealth of 3D models available from various sources. By introducing a standardized metadata schema, it establishes a structured framework for the incorporation of these models into webGIS systems. A central theme of this work is the development of a metadata standard that acts as a bridge between 3D models and webGIS environments granting it all information that can be used to correctly locate, scale and orient the models. It enables efficient searching, rendering, and utilization of these models within geographic contexts. Leveraging MapLibre GL JS and Three.js, the paper showcases how external metadata can significantly enhance the integration of 3D models into webGIS, thereby fostering a more versatile and comprehensive geospatial data exploration experience.}, number={2}, journal={Archeologia e Calcolatori}, publisher={Edizioni All’Insegna del Giglio s.a.s.}, author={Montanari, Marco and Marsicano, Lucia}, year={2024}, pages={255–262} }</code></pre>
+            <button type="button" class="chip copy-bib" data-copy-from="bib-montanari_marsicano_2024">Copy BibTeX</button>
+          </div>
+        </div>
+      </li>
+      <li class="pub" data-year="2024">
+        <div class="pub-year">2024</div>
+        <div class="pub-body">
+          <p class="pub-title">Trace Analysis of Electric Micromobility and its Application for City Sensing</p>
+          <p class="pub-meta">Esposito, A., Ciabattini, L., Sciullo, L., <strong>Montanari, M.</strong>, Bononi, L., Di Felice, M.<span class="sep"> · </span><em>2024 28th International Symposium on Distributed Simulation and Real Time Applications (DS-RT)</em></p>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.1109/ds-rt62209.2024.00015" rel="noopener">doi:10.1109/ds-rt62209.2024.00015</a>
+            <button type="button" class="chip" data-toggle="bib-Esposito_2024" aria-expanded="false">BibTeX</button>
+            <button type="button" class="chip" data-copy-text="Esposito, A., Ciabattini, L., Sciullo, L., Montanari, M., Bononi, L., Di Felice, M. (2024). Trace Analysis of Electric Micromobility and its Application for City Sensing. 2024 28th International Symposium on Distributed Simulation and Real Time Applications (DS-RT). https://doi.org/10.1109/ds-rt62209.2024.00015">Copy citation</button>
+          </div>
+          <div class="bib" id="bib-Esposito_2024" hidden>
+            <pre><code>@inproceedings{Esposito_2024, title={Trace Analysis of Electric Micromobility and its Application for City Sensing}, url={http://dx.doi.org/10.1109/DS-RT62209.2024.00015}, DOI={10.1109/ds-rt62209.2024.00015}, booktitle={2024 28th International Symposium on Distributed Simulation and Real Time Applications (DS-RT)}, publisher={IEEE}, author={Esposito, Alfonso and Ciabattini, Leonardo and Sciullo, Luca and Montanari, Marco and Bononi, Luciano and Di Felice, Marco}, year={2024}, month=Oct, pages={34–41} }</code></pre>
+            <button type="button" class="chip copy-bib" data-copy-from="bib-Esposito_2024">Copy BibTeX</button>
+          </div>
+        </div>
+      </li>
+      <li class="pub" data-year="2022">
+        <div class="pub-year">2022</div>
+        <div class="pub-body">
+          <p class="pub-title">Open History Map – Status of the Project</p>
+          <p class="pub-meta"><strong>Montanari, M.</strong>, Marsicano, L., Trojanis, R., Bernardoni, S., Gigli, L.<span class="sep"> · </span><em>Archeomatica – Tecnologie per i Beni Culturali</em></p>
+          <div class="pub-actions">
+            <a href="https://doaj.org/article/2909e2ca001340e2ac2f148ec88f5596" rel="noopener">link</a>
+            <button type="button" class="chip" data-toggle="bib-Montanari_2022_OHM_status" aria-expanded="false">BibTeX</button>
+            <button type="button" class="chip" data-copy-text="Montanari, M., Marsicano, L., Trojanis, R., Bernardoni, S., Gigli, L. (2022). Open History Map – Status of the Project. Archeomatica – Tecnologie per i Beni Culturali. https://doaj.org/article/2909e2ca001340e2ac2f148ec88f5596">Copy citation</button>
+          </div>
+          <div class="bib" id="bib-Montanari_2022_OHM_status" hidden>
+            <pre><code>@article{Montanari_2022_OHM_status,
+  title={Open History Map -- Status of the Project},
+  author={Montanari, Marco and Marsicano, Lucia and Trojanis, Raffaele and Bernardoni, Silvia and Gigli, Lorenzo},
+  journal={Archeomatica -- Tecnologie per i Beni Culturali},
+  year={2022},
+  url={https://doaj.org/article/2909e2ca001340e2ac2f148ec88f5596},
+  note={Web of Science WOS:000980750900004; no DOI}
+}</code></pre>
+            <button type="button" class="chip copy-bib" data-copy-from="bib-Montanari_2022_OHM_status">Copy BibTeX</button>
+          </div>
+        </div>
+      </li>
+      <li class="pub" data-year="2021">
+        <div class="pub-year">2021</div>
+        <div class="pub-body">
+          <p class="pub-title">Participatory Models in Archaeology: Wiki and Open Access Platforms</p>
+          <p class="pub-meta">Marsicano, L., <strong>Montanari, M.</strong>, Bezzi, L., Bezzi, A.<span class="sep"> · </span><em>ArcheoFOSS XIII Workshop—Open Software, Hardware, Processes, Data and Formats in Archaeological Research</em></p>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.3390/environsciproc2021010012" rel="noopener">doi:10.3390/environsciproc2021010012</a>
+            <button type="button" class="chip" data-toggle="bib-Marsicano_2021" aria-expanded="false">BibTeX</button>
+            <button type="button" class="chip" data-copy-text="Marsicano, L., Montanari, M., Bezzi, L., Bezzi, A. (2021). Participatory Models in Archaeology: Wiki and Open Access Platforms. ArcheoFOSS XIII Workshop—Open Software, Hardware, Processes, Data and Formats in Archaeological Research. https://doi.org/10.3390/environsciproc2021010012">Copy citation</button>
+          </div>
+          <div class="bib" id="bib-Marsicano_2021" hidden>
+            <pre><code>@inproceedings{Marsicano_2021, series={ArcheoFOSS 2019}, title={Participatory Models in Archaeology: Wiki and Open Access Platforms}, url={http://dx.doi.org/10.3390/environsciproc2021010012}, DOI={10.3390/environsciproc2021010012}, booktitle={ArcheoFOSS XIII Workshop---Open Software, Hardware, Processes, Data and Formats in Archaeological Research}, publisher={MDPI}, author={Marsicano, Lucia and Montanari, Marco and Bezzi, Luca and Bezzi, Alessandro}, year={2021}, month=Nov, pages={12}, collection={ArcheoFOSS 2019} }</code></pre>
+            <button type="button" class="chip copy-bib" data-copy-from="bib-Marsicano_2021">Copy BibTeX</button>
+          </div>
+        </div>
+      </li>
+      <li class="pub" data-year="2018">
+        <div class="pub-year">2018</div>
+        <div class="pub-body">
+          <p class="pub-title">GeoContext and CHContext: Geographic Information in Cultural Heritage</p>
+          <p class="pub-meta">Marsicano, L., <strong>Montanari, M.</strong><span class="sep"> · </span><em>The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences</em></p>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.5194/isprs-archives-xlii-4-w8-129-2018" rel="noopener">doi:10.5194/isprs-archives-xlii-4-w8-129-2018</a>
+            <button type="button" class="chip" data-toggle="bib-Marsicano_2018" aria-expanded="false">BibTeX</button>
+            <button type="button" class="chip" data-copy-text="Marsicano, L., Montanari, M. (2018). GeoContext and CHContext: Geographic Information in Cultural Heritage. The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences. https://doi.org/10.5194/isprs-archives-xlii-4-w8-129-2018">Copy citation</button>
+          </div>
+          <div class="bib" id="bib-Marsicano_2018" hidden>
+            <pre><code>@article{Marsicano_2018, title={{GeoContext} and {CHContext}: Geographic Information in Cultural Heritage}, volume={XLII-4/W8}, ISSN={2194-9034}, url={http://dx.doi.org/10.5194/isprs-archives-XLII-4-W8-129-2018}, DOI={10.5194/isprs-archives-xlii-4-w8-129-2018}, journal={The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences}, publisher={Copernicus GmbH}, author={Marsicano, L. and Montanari, M.}, year={2018}, month=July, pages={129–132} }</code></pre>
+            <button type="button" class="chip copy-bib" data-copy-from="bib-Marsicano_2018">Copy BibTeX</button>
+          </div>
+        </div>
+      </li>
+      <li class="pub" data-year="2017">
+        <div class="pub-year">2017</div>
+        <div class="pub-body">
+          <p class="pub-title">Open History Map</p>
+          <p class="pub-meta">Bernardoni, S., <strong>Montanari, M.</strong>, Trojanis, R.<span class="sep"> · </span><em>Archeologia e Calcolatori</em></p>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.19282/ac.28.2.2017.44" rel="noopener">doi:10.19282/ac.28.2.2017.44</a>
+            <button type="button" class="chip" data-toggle="bib-bernardoni_montanari_trojanis_2017" aria-expanded="false">BibTeX</button>
+            <button type="button" class="chip" data-copy-text="Bernardoni, S., Montanari, M., Trojanis, R. (2017). Open History Map. Archeologia e Calcolatori. https://doi.org/10.19282/ac.28.2.2017.44">Copy citation</button>
+          </div>
+          <div class="bib" id="bib-bernardoni_montanari_trojanis_2017" hidden>
+            <pre><code>@article{bernardoni_montanari_trojanis_2017, address={IT}, title={Open History Map}, volume={28}, ISSN={1120-6861, 2385-1953}, url={https://doi.org/10.19282/ac.28.2.2017.44}, DOI={10.19282/ac.28.2.2017.44}, abstractNote={OpenHistoryMap aspires to become the open source geographical system for archaeological information, both from an academic and an educational point of view. There are many fragmented online web-GIS experiences targeted at very specific projects, but no tool enables a broader overview of both research and studies. For these reasons, in order to create an Open Access platform, one of the most important aspects is the creation of tools that can facilitate both the sharing of archaeological spatial and temporal information as well as the easy reuse of the generated data. OpenHistoryMap is supposed to create a tool that is both a map of the archaeological world as well as a repository for the connected data within structured research papers. The project finds its roots first of all within the collective experience of ‘archaeology’ that refers to non-expert users, and in the second place within the academic scientific experience of research centres and universities. While the first approach gives an integrated and reliable picture of the cultural item, the second provides consistent and solid datasets with a perspective on the mixture of specific types of information.}, number={2}, journal={Archeologia e Calcolatori}, publisher={Edizioni All’Insegna del Giglio s.a.s.}, author={Bernardoni, Silvia and Montanari, Marco and Trojanis, Raffaele}, year={2017}, pages={539–548}, keywords={multimedia and web tools; data dissemination and education} }</code></pre>
+            <button type="button" class="chip copy-bib" data-copy-from="bib-bernardoni_montanari_trojanis_2017">Copy BibTeX</button>
+          </div>
+        </div>
+      </li>
+      <li class="pub" data-year="2015">
+        <div class="pub-year">2015</div>
+        <div class="pub-body">
+          <p class="pub-title">Open History Map – A New Approach to Open Access for Archaeology and Cultural Heritage</p>
+          <p class="pub-meta"><strong>Montanari, M.</strong>, Trojanis, R., Bernardoni, S., Tepedino, L.<span class="sep"> · </span><em>2015 Digital Heritage</em></p>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.1109/digitalheritage.2015.7419557" rel="noopener">doi:10.1109/digitalheritage.2015.7419557</a>
+            <button type="button" class="chip" data-toggle="bib-Montanari_2015" aria-expanded="false">BibTeX</button>
+            <button type="button" class="chip" data-copy-text="Montanari, M., Trojanis, R., Bernardoni, S., Tepedino, L. (2015). Open History Map – A New Approach to Open Access for Archaeology and Cultural Heritage. 2015 Digital Heritage. https://doi.org/10.1109/digitalheritage.2015.7419557">Copy citation</button>
+          </div>
+          <div class="bib" id="bib-Montanari_2015" hidden>
+            <pre><code>@inproceedings{Montanari_2015, title={{Open History Map} -- A New Approach to Open Access for Archaeology and Cultural Heritage}, url={http://dx.doi.org/10.1109/DigitalHeritage.2015.7419557}, DOI={10.1109/digitalheritage.2015.7419557}, booktitle={2015 Digital Heritage}, publisher={IEEE}, author={Montanari, Marco and Trojanis, Raffaele and Bernardoni, Silvia and Tepedino, Luca}, year={2015}, month=Sept, pages={479–480} }</code></pre>
+            <button type="button" class="chip copy-bib" data-copy-from="bib-Montanari_2015">Copy BibTeX</button>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="talks">
+    <h2>Talks &amp; media <span class="count">17 items</span></h2>
+    <ol class="pubs">
+      <li class="pub" data-year="2026">
+        <div class="pub-year">2026</div>
+        <div class="pub-body">
+          <p class="pub-title">Inside Board Game Publishing</p>
+          <p class="pub-meta"><strong>Montanari, M.</strong><span class="sep"> · </span><em>Zenodo</em></p>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.5281/zenodo.20310092" rel="noopener">doi:10.5281/zenodo.20310092</a>
+            <button type="button" class="chip" data-toggle="bib-zenodo_20310092" aria-expanded="false">BibTeX</button>
+            <button type="button" class="chip" data-copy-text="Montanari, M. (2026). Inside Board Game Publishing. Zenodo. https://doi.org/10.5281/zenodo.20310092">Copy citation</button>
+          </div>
+          <div class="bib" id="bib-zenodo_20310092" hidden>
+            <pre><code>@misc{zenodo_20310092,
+doi = {10.5281/ZENODO.20310092},
+url = {https://zenodo.org/doi/10.5281/zenodo.20310092},
+author = {Montanari, Marco},
+language = {en},
+title = {Inside Board Game Publishing},
+publisher = {Zenodo},
+year = {2026},
+copyright = {Creative Commons Attribution Share Alike 4.0 International}
+}</code></pre>
+            <button type="button" class="chip copy-bib" data-copy-from="bib-zenodo_20310092">Copy BibTeX</button>
+          </div>
+        </div>
+      </li>
+      <li class="pub" data-year="2026">
+        <div class="pub-year">2026</div>
+        <div class="pub-body">
+          <p class="pub-title">GeoBard: Semantic Grounding for Geo-Aware AI Agents</p>
+          <p class="pub-meta"><strong>Montanari, M.</strong><span class="sep"> · </span><em>figshare</em></p>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.6084/m9.figshare.33095330" rel="noopener">doi:10.6084/m9.figshare.33095330</a>
+            <button type="button" class="chip" data-toggle="bib-figshare_33095330" aria-expanded="false">BibTeX</button>
+            <button type="button" class="chip" data-copy-text="Montanari, M. (2026). GeoBard: Semantic Grounding for Geo-Aware AI Agents. figshare. https://doi.org/10.6084/m9.figshare.33095330">Copy citation</button>
+          </div>
+          <div class="bib" id="bib-figshare_33095330" hidden>
+            <pre><code>@misc{figshare_33095330,
+doi = {10.6084/M9.FIGSHARE.33095330},
+url = {https://figshare.com/articles/presentation/_b_GeoBard_Semantic_Grounding_for_Geo-Aware_AI_Agents_b_/33095330},
+author = {Montanari, Marco},
+keywords = {Human-computer interaction},
+title = {GeoBard: Semantic Grounding for Geo-Aware AI Agents},
+publisher = {figshare},
+year = {2026},
+copyright = {Creative Commons Attribution 4.0 International}
+}</code></pre>
+            <button type="button" class="chip copy-bib" data-copy-from="bib-figshare_33095330">Copy BibTeX</button>
+          </div>
+        </div>
+      </li>
+      <li class="pub" data-year="2025">
+        <div class="pub-year">2025</div>
+        <div class="pub-body">
+          <p class="pub-title">Tangible Revolutions @ CAST Firenze</p>
+          <p class="pub-meta"><strong>Montanari, M.</strong>, Marsicano, L.<span class="sep"> · </span><em>figshare</em></p>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.6084/m9.figshare.28560527" rel="noopener">doi:10.6084/m9.figshare.28560527</a>
+            <button type="button" class="chip" data-toggle="bib-figshare_28560527" aria-expanded="false">BibTeX</button>
+            <button type="button" class="chip" data-copy-text="Montanari, M., Marsicano, L. (2025). Tangible Revolutions @ CAST Firenze. figshare. https://doi.org/10.6084/m9.figshare.28560527">Copy citation</button>
+          </div>
+          <div class="bib" id="bib-figshare_28560527" hidden>
+            <pre><code>@misc{figshare_28560527,
+doi = {10.6084/M9.FIGSHARE.28560527},
+url = {https://figshare.com/articles/presentation/Tantible_Revolutions_CAST_Firenze/28560527},
+author = {Montanari, Marco and Marsicano, Lucia},
+keywords = {Historical studies not elsewhere classified},
+title = {Tangible Revolutions @ CAST Firenze},
+publisher = {figshare},
+year = {2025},
+copyright = {Creative Commons Attribution 4.0 International}
+}</code></pre>
+            <button type="button" class="chip copy-bib" data-copy-from="bib-figshare_28560527">Copy BibTeX</button>
+          </div>
+        </div>
+      </li>
+      <li class="pub" data-year="2025">
+        <div class="pub-year">2025</div>
+        <div class="pub-body">
+          <p class="pub-title">Ecosistema Open</p>
+          <p class="pub-meta"><strong>Montanari, M.</strong><span class="sep"> · </span><em>figshare</em></p>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.6084/m9.figshare.29534027" rel="noopener">doi:10.6084/m9.figshare.29534027</a>
+            <button type="button" class="chip" data-toggle="bib-figshare_29534027" aria-expanded="false">BibTeX</button>
+            <button type="button" class="chip" data-copy-text="Montanari, M. (2025). Ecosistema Open. figshare. https://doi.org/10.6084/m9.figshare.29534027">Copy citation</button>
+          </div>
+          <div class="bib" id="bib-figshare_29534027" hidden>
+            <pre><code>@misc{figshare_29534027,
+doi = {10.6084/M9.FIGSHARE.29534027},
+url = {https://figshare.com/articles/presentation/Ecosistema_Open/29534027},
+author = {Montanari, Marco},
+keywords = {Spatial data and applications, Applied computing not elsewhere classified},
+title = {Ecosistema Open},
+publisher = {figshare},
+year = {2025},
+copyright = {Creative Commons Attribution 4.0 International}
+}</code></pre>
+            <button type="button" class="chip copy-bib" data-copy-from="bib-figshare_29534027">Copy BibTeX</button>
+          </div>
+        </div>
+      </li>
+      <li class="pub" data-year="2025">
+        <div class="pub-year">2025</div>
+        <div class="pub-body">
+          <p class="pub-title">Semantic MediaWiki data description, transformation and integration</p>
+          <p class="pub-meta"><strong>Montanari, M.</strong><span class="sep"> · </span><em>figshare</em></p>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.6084/m9.figshare.30093925" rel="noopener">doi:10.6084/m9.figshare.30093925</a>
+            <button type="button" class="chip" data-toggle="bib-figshare_30093925" aria-expanded="false">BibTeX</button>
+            <button type="button" class="chip" data-copy-text="Montanari, M. (2025). Semantic MediaWiki data description, transformation and integration. figshare. https://doi.org/10.6084/m9.figshare.30093925">Copy citation</button>
+          </div>
+          <div class="bib" id="bib-figshare_30093925" hidden>
+            <pre><code>@misc{figshare_30093925,
+doi = {10.6084/M9.FIGSHARE.30093925},
+url = {https://figshare.com/articles/presentation/Semantic_MediaWiki_data_description_transformation_and_integration/30093925},
+author = {Montanari, Marco},
+keywords = {Data engineering and data science},
+title = {Semantic MediaWiki data description, transformation and integration},
+publisher = {figshare},
+year = {2025},
+copyright = {Creative Commons Attribution 4.0 International}
+}</code></pre>
+            <button type="button" class="chip copy-bib" data-copy-from="bib-figshare_30093925">Copy BibTeX</button>
+          </div>
+        </div>
+      </li>
+      <li class="pub" data-year="2024">
+        <div class="pub-year">2024</div>
+        <div class="pub-body">
+          <p class="pub-title">Open History Map - Mozilla Festival</p>
+          <p class="pub-meta"><strong>Montanari, M.</strong>, Marsicano, L., Trojanis, R., Bernardoni, S.<span class="sep"> · </span><em>figshare</em></p>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.6084/m9.figshare.24967590" rel="noopener">doi:10.6084/m9.figshare.24967590</a>
+            <button type="button" class="chip" data-toggle="bib-figshare_24967590" aria-expanded="false">BibTeX</button>
+            <button type="button" class="chip" data-copy-text="Montanari, M., Marsicano, L., Trojanis, R., Bernardoni, S. (2024). Open History Map - Mozilla Festival. figshare. https://doi.org/10.6084/m9.figshare.24967590">Copy citation</button>
+          </div>
+          <div class="bib" id="bib-figshare_24967590" hidden>
+            <pre><code>@misc{figshare_24967590,
+doi = {10.6084/M9.FIGSHARE.24967590},
+url = {https://figshare.com/articles/presentation/Open_History_Map_-_Mozilla_Festival/24967590},
+author = {Montanari, Marco and Marsicano, Lucia and Trojanis, Raffaele and Bernardoni, Silvia},
+keywords = {Digital heritage},
+title = {Open History Map - Mozilla Festival},
+publisher = {figshare},
+year = {2024},
+copyright = {Creative Commons Attribution 4.0 International}
+}</code></pre>
+            <button type="button" class="chip copy-bib" data-copy-from="bib-figshare_24967590">Copy BibTeX</button>
+          </div>
+        </div>
+      </li>
+      <li class="pub" data-year="2024">
+        <div class="pub-year">2024</div>
+        <div class="pub-body">
+          <p class="pub-title">Open History Map at SFSCon</p>
+          <p class="pub-meta"><strong>Montanari, M.</strong><span class="sep"> · </span><em>figshare</em></p>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.6084/m9.figshare.24967596" rel="noopener">doi:10.6084/m9.figshare.24967596</a>
+            <button type="button" class="chip" data-toggle="bib-figshare_24967596" aria-expanded="false">BibTeX</button>
+            <button type="button" class="chip" data-copy-text="Montanari, M. (2024). Open History Map at SFSCon. figshare. https://doi.org/10.6084/m9.figshare.24967596">Copy citation</button>
+          </div>
+          <div class="bib" id="bib-figshare_24967596" hidden>
+            <pre><code>@misc{figshare_24967596,
+doi = {10.6084/M9.FIGSHARE.24967596},
+url = {https://figshare.com/articles/presentation/Open_History_Map_at_SFSCon/24967596},
+author = {Montanari, Marco},
+keywords = {Digital heritage, Digital history, Digital archaeology},
+title = {Open History Map at SFSCon},
+publisher = {figshare},
+year = {2024},
+copyright = {Creative Commons Attribution 4.0 International}
+}</code></pre>
+            <button type="button" class="chip copy-bib" data-copy-from="bib-figshare_24967596">Copy BibTeX</button>
+          </div>
+        </div>
+      </li>
+      <li class="pub" data-year="2024">
+        <div class="pub-year">2024</div>
+        <div class="pub-body">
+          <p class="pub-title">OHM Introduction at Archeofoss 2021</p>
+          <p class="pub-meta"><strong>Montanari, M.</strong><span class="sep"> · </span><em>figshare</em></p>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.6084/m9.figshare.24967668" rel="noopener">doi:10.6084/m9.figshare.24967668</a>
+            <button type="button" class="chip" data-toggle="bib-figshare_24967668" aria-expanded="false">BibTeX</button>
+            <button type="button" class="chip" data-copy-text="Montanari, M. (2024). OHM Introduction at Archeofoss 2021. figshare. https://doi.org/10.6084/m9.figshare.24967668">Copy citation</button>
+          </div>
+          <div class="bib" id="bib-figshare_24967668" hidden>
+            <pre><code>@misc{figshare_24967668,
+doi = {10.6084/M9.FIGSHARE.24967668},
+url = {https://figshare.com/articles/media/OHM_Introduction_at_Archeofoss_2021/24967668},
+author = {Montanari, Marco},
+keywords = {Digital history},
+title = {OHM Introduction at Archeofoss 2021},
+publisher = {figshare},
+year = {2024},
+copyright = {Creative Commons Attribution 4.0 International}
+}</code></pre>
+            <button type="button" class="chip copy-bib" data-copy-from="bib-figshare_24967668">Copy BibTeX</button>
+          </div>
+        </div>
+      </li>
+      <li class="pub" data-year="2024">
+        <div class="pub-year">2024</div>
+        <div class="pub-body">
+          <p class="pub-title">Bologna 1115</p>
+          <p class="pub-meta">Marsicano, L., <strong>Montanari, M.</strong><span class="sep"> · </span><em>figshare</em></p>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.6084/m9.figshare.25061984" rel="noopener">doi:10.6084/m9.figshare.25061984</a>
+            <button type="button" class="chip" data-toggle="bib-figshare_25061984" aria-expanded="false">BibTeX</button>
+            <button type="button" class="chip" data-copy-text="Marsicano, L., Montanari, M. (2024). Bologna 1115. figshare. https://doi.org/10.6084/m9.figshare.25061984">Copy citation</button>
+          </div>
+          <div class="bib" id="bib-figshare_25061984" hidden>
+            <pre><code>@misc{figshare_25061984,
+doi = {10.6084/M9.FIGSHARE.25061984},
+url = {https://figshare.com/articles/media/Bologna_1115/25061984},
+author = {Marsicano, Lucia and Montanari, Marco},
+keywords = {Digital heritage},
+title = {Bologna 1115},
+publisher = {figshare},
+year = {2024},
+copyright = {Creative Commons Attribution 4.0 International}
+}</code></pre>
+            <button type="button" class="chip copy-bib" data-copy-from="bib-figshare_25061984">Copy BibTeX</button>
+          </div>
+        </div>
+      </li>
+      <li class="pub" data-year="2024">
+        <div class="pub-year">2024</div>
+        <div class="pub-body">
+          <p class="pub-title">Edutainment e Wikipedia</p>
+          <p class="pub-meta"><strong>Montanari, M.</strong><span class="sep"> · </span><em>figshare</em></p>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.6084/m9.figshare.27897396" rel="noopener">doi:10.6084/m9.figshare.27897396</a>
+            <button type="button" class="chip" data-toggle="bib-figshare_27897396" aria-expanded="false">BibTeX</button>
+            <button type="button" class="chip" data-copy-text="Montanari, M. (2024). Edutainment e Wikipedia. figshare. https://doi.org/10.6084/m9.figshare.27897396">Copy citation</button>
+          </div>
+          <div class="bib" id="bib-figshare_27897396" hidden>
+            <pre><code>@misc{figshare_27897396,
+doi = {10.6084/M9.FIGSHARE.27897396},
+url = {https://figshare.com/articles/presentation/Edutainment_e_Wikipedia/27897396},
+author = {Montanari, Marco},
+keywords = {Cartography and digital mapping},
+title = {Edutainment e Wikipedia},
+publisher = {figshare},
+year = {2024},
+copyright = {Creative Commons Attribution 4.0 International}
+}</code></pre>
+            <button type="button" class="chip copy-bib" data-copy-from="bib-figshare_27897396">Copy BibTeX</button>
+          </div>
+        </div>
+      </li>
+      <li class="pub" data-year="2024">
+        <div class="pub-year">2024</div>
+        <div class="pub-body">
+          <p class="pub-title">Strade, Cave e Teatri</p>
+          <p class="pub-meta"><strong>Montanari, M.</strong>, Marsicano, L.<span class="sep"> · </span><em>figshare</em></p>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.6084/m9.figshare.28106933" rel="noopener">doi:10.6084/m9.figshare.28106933</a>
+            <button type="button" class="chip" data-toggle="bib-figshare_28106933" aria-expanded="false">BibTeX</button>
+            <button type="button" class="chip" data-copy-text="Montanari, M., Marsicano, L. (2024). Strade, Cave e Teatri. figshare. https://doi.org/10.6084/m9.figshare.28106933">Copy citation</button>
+          </div>
+          <div class="bib" id="bib-figshare_28106933" hidden>
+            <pre><code>@misc{figshare_28106933,
+doi = {10.6084/M9.FIGSHARE.28106933},
+url = {https://figshare.com/articles/presentation/Strade_Cave_e_Teatri/28106933},
+author = {Montanari, Marco and Marsicano, Lucia},
+keywords = {Autonomous agents and multiagent systems, Modelling and simulation},
+title = {Strade, Cave e Teatri},
+publisher = {figshare},
+year = {2024},
+copyright = {Creative Commons Attribution 4.0 International}
+}</code></pre>
+            <button type="button" class="chip copy-bib" data-copy-from="bib-figshare_28106933">Copy BibTeX</button>
+          </div>
+        </div>
+      </li>
+      <li class="pub" data-year="2024">
+        <div class="pub-year">2024</div>
+        <div class="pub-body">
+          <p class="pub-title">Tangible Revolutions</p>
+          <p class="pub-meta"><strong>Montanari, M.</strong><span class="sep"> · </span><em>figshare</em></p>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.6084/m9.figshare.28106945" rel="noopener">doi:10.6084/m9.figshare.28106945</a>
+            <button type="button" class="chip" data-toggle="bib-figshare_28106945" aria-expanded="false">BibTeX</button>
+            <button type="button" class="chip" data-copy-text="Montanari, M. (2024). Tangible Revolutions. figshare. https://doi.org/10.6084/m9.figshare.28106945">Copy citation</button>
+          </div>
+          <div class="bib" id="bib-figshare_28106945" hidden>
+            <pre><code>@misc{figshare_28106945,
+doi = {10.6084/M9.FIGSHARE.28106945},
+url = {https://figshare.com/articles/presentation/Tangible_Revolutions/28106945},
+author = {Montanari, Marco},
+keywords = {Applications in arts and humanities},
+title = {Tangible Revolutions},
+publisher = {figshare},
+year = {2024},
+copyright = {Creative Commons Attribution 4.0 International}
+}</code></pre>
+            <button type="button" class="chip copy-bib" data-copy-from="bib-figshare_28106945">Copy BibTeX</button>
+          </div>
+        </div>
+      </li>
+      <li class="pub" data-year="2023">
+        <div class="pub-year">2023</div>
+        <div class="pub-body">
+          <p class="pub-title">Simplifying contextualization of 3D model archives in WebGIS: 3DModel Commons</p>
+          <p class="pub-meta"><strong>Montanari, M.</strong>, Marsicano, L.<span class="sep"> · </span><em>figshare</em></p>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.6084/m9.figshare.24793536" rel="noopener">doi:10.6084/m9.figshare.24793536</a>
+            <button type="button" class="chip" data-toggle="bib-figshare_24793536" aria-expanded="false">BibTeX</button>
+            <button type="button" class="chip" data-copy-text="Montanari, M., Marsicano, L. (2023). Simplifying contextualization of 3D model archives in WebGIS: 3DModel Commons. figshare. https://doi.org/10.6084/m9.figshare.24793536">Copy citation</button>
+          </div>
+          <div class="bib" id="bib-figshare_24793536" hidden>
+            <pre><code>@misc{figshare_24793536,
+doi = {10.6084/M9.FIGSHARE.24793536},
+url = {https://figshare.com/articles/presentation/Simplifying_contextualization_of_3D_model_archives_in_WebGIS_3DModel_Commons/24793536},
+author = {Montanari, Marco and Marsicano, Lucia},
+keywords = {Digital heritage, Applications in arts and humanities},
+title = {Simplifying contextualization of 3D model archives in WebGIS: 3DModel Commons},
+publisher = {figshare},
+year = {2023},
+copyright = {Creative Commons Attribution 4.0 International}
+}</code></pre>
+            <button type="button" class="chip copy-bib" data-copy-from="bib-figshare_24793536">Copy BibTeX</button>
+          </div>
+        </div>
+      </li>
+      <li class="pub" data-year="2023">
+        <div class="pub-year">2023</div>
+        <div class="pub-body">
+          <p class="pub-title">Engaging the Public: Reviving History Through the Social Simulacra Model in Participatory Public History Projects</p>
+          <p class="pub-meta"><strong>Montanari, M.</strong>, Gigli, L., Marsicano, L.<span class="sep"> · </span><em>figshare</em></p>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.6084/m9.figshare.24805974" rel="noopener">doi:10.6084/m9.figshare.24805974</a>
+            <button type="button" class="chip" data-toggle="bib-figshare_24805974" aria-expanded="false">BibTeX</button>
+            <button type="button" class="chip" data-copy-text="Montanari, M., Gigli, L., Marsicano, L. (2023). Engaging the Public: Reviving History Through the Social Simulacra Model in Participatory Public History Projects. figshare. https://doi.org/10.6084/m9.figshare.24805974">Copy citation</button>
+          </div>
+          <div class="bib" id="bib-figshare_24805974" hidden>
+            <pre><code>@misc{figshare_24805974,
+doi = {10.6084/M9.FIGSHARE.24805974},
+url = {https://figshare.com/articles/presentation/Engaging_the_Public_Reviving_History_Through_the_Social_Simulacra_Model_in_Participatory_Public_History_Projects/24805974},
+author = {Montanari, Marco and Gigli, Lorenzo and Marsicano, Lucia},
+keywords = {Natural language processing, Speech production, Critical heritage, museum and archive studies},
+title = {Engaging the Public: Reviving History Through the Social Simulacra Model in Participatory Public History Projects},
+publisher = {figshare},
+year = {2023},
+copyright = {Creative Commons Attribution 4.0 International}
+}</code></pre>
+            <button type="button" class="chip copy-bib" data-copy-from="bib-figshare_24805974">Copy BibTeX</button>
+          </div>
+        </div>
+      </li>
+      <li class="pub" data-year="2023">
+        <div class="pub-year">2023</div>
+        <div class="pub-body">
+          <p class="pub-title">Entertainment buildings in the roman empire: a quantitative approach</p>
+          <p class="pub-meta">Marsicano, L., <strong>Montanari, M.</strong><span class="sep"> · </span><em>figshare</em></p>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.6084/m9.figshare.24806001" rel="noopener">doi:10.6084/m9.figshare.24806001</a>
+            <button type="button" class="chip" data-toggle="bib-figshare_24806001" aria-expanded="false">BibTeX</button>
+            <button type="button" class="chip" data-copy-text="Marsicano, L., Montanari, M. (2023). Entertainment buildings in the roman empire: a quantitative approach. figshare. https://doi.org/10.6084/m9.figshare.24806001">Copy citation</button>
+          </div>
+          <div class="bib" id="bib-figshare_24806001" hidden>
+            <pre><code>@misc{figshare_24806001,
+doi = {10.6084/M9.FIGSHARE.24806001},
+url = {https://figshare.com/articles/presentation/Entertainment_buildings_in_the_roman_empire_a_quantitative_approach/24806001},
+author = {Marsicano, Lucia and Montanari, Marco},
+keywords = {Classical Greek and Roman history, Digital archaeology, Archaeological science},
+title = {Entertainment buildings in the roman empire: a quantitative approach},
+publisher = {figshare},
+year = {2023},
+copyright = {Creative Commons Attribution 4.0 International}
+}</code></pre>
+            <button type="button" class="chip copy-bib" data-copy-from="bib-figshare_24806001">Copy BibTeX</button>
+          </div>
+        </div>
+      </li>
+      <li class="pub" data-year="2022">
+        <div class="pub-year">2022</div>
+        <div class="pub-body">
+          <p class="pub-title">Towards Bradypus v5: Interconnecting the archaeological research</p>
+          <p class="pub-meta">Bogdani, J., <strong>Montanari, M.</strong><span class="sep"> · </span><em>Zenodo</em></p>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.5281/zenodo.7107339" rel="noopener">doi:10.5281/zenodo.7107339</a>
+            <button type="button" class="chip" data-toggle="bib-zenodo_7107339" aria-expanded="false">BibTeX</button>
+            <button type="button" class="chip" data-copy-text="Bogdani, J., Montanari, M. (2022). Towards Bradypus v5: Interconnecting the archaeological research. Zenodo. https://doi.org/10.5281/zenodo.7107339">Copy citation</button>
+          </div>
+          <div class="bib" id="bib-zenodo_7107339" hidden>
+            <pre><code>@misc{zenodo_7107339,
+doi = {10.5281/ZENODO.7107339},
+url = {https://zenodo.org/record/7107339},
+author = {Bogdani, Julian and Montanari, Marco},
+keywords = {digital archaeology, archaeological database, open source, archaeological information system, rest api},
+language = {en},
+title = {Towards Bradypus v5: Interconnecting the archaeological research},
+publisher = {Zenodo},
+year = {2022},
+copyright = {Creative Commons Attribution 4.0 International}
+}</code></pre>
+            <button type="button" class="chip copy-bib" data-copy-from="bib-zenodo_7107339">Copy BibTeX</button>
+          </div>
+        </div>
+      </li>
+      <li class="pub" data-year="2022">
+        <div class="pub-year">2022</div>
+        <div class="pub-body">
+          <p class="pub-title">Mappare il passato con dati aperti</p>
+          <p class="pub-meta"><strong>Montanari, M.</strong>, Marsicano, L.<span class="sep"> · </span><em>Zenodo</em></p>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.5281/zenodo.7128795" rel="noopener">doi:10.5281/zenodo.7128795</a>
+            <button type="button" class="chip" data-toggle="bib-zenodo_7128795" aria-expanded="false">BibTeX</button>
+            <button type="button" class="chip" data-copy-text="Montanari, M., Marsicano, L. (2022). Mappare il passato con dati aperti. Zenodo. https://doi.org/10.5281/zenodo.7128795">Copy citation</button>
+          </div>
+          <div class="bib" id="bib-zenodo_7128795" hidden>
+            <pre><code>@misc{zenodo_7128795,
+doi = {10.5281/ZENODO.7128795},
+url = {https://zenodo.org/record/7128795},
+author = {Montanari, Marco and Marsicano, Lucia},
+keywords = {digital humanities, dh, open data, open data sicilia},
+language = {it},
+title = {Mappare il passato con dati aperti},
+publisher = {Zenodo},
+year = {2022},
+copyright = {Creative Commons Attribution 4.0 International}
+}</code></pre>
+            <button type="button" class="chip copy-bib" data-copy-from="bib-zenodo_7128795">Copy BibTeX</button>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="bibtex" class="allbib">
+    <h2>BibTeX</h2>
+    <div class="bar">
+      <button type="button" class="chip primary" data-copy-from="all-bib">Copy all BibTeX</button>
+      <a class="chip" href="publications.bib" download>Download publications.bib</a>
+    </div>
+    <div id="all-bib"><pre><code>@inproceedings{Montanari_2015, title={{Open History Map} -- A New Approach to Open Access for Archaeology and Cultural Heritage}, url={http://dx.doi.org/10.1109/DigitalHeritage.2015.7419557}, DOI={10.1109/digitalheritage.2015.7419557}, booktitle={2015 Digital Heritage}, publisher={IEEE}, author={Montanari, Marco and Trojanis, Raffaele and Bernardoni, Silvia and Tepedino, Luca}, year={2015}, month=Sept, pages={479–480} }
+
+@article{bernardoni_montanari_trojanis_2017, address={IT}, title={Open History Map}, volume={28}, ISSN={1120-6861, 2385-1953}, url={https://doi.org/10.19282/ac.28.2.2017.44}, DOI={10.19282/ac.28.2.2017.44}, abstractNote={OpenHistoryMap aspires to become the open source geographical system for archaeological information, both from an academic and an educational point of view. There are many fragmented online web-GIS experiences targeted at very specific projects, but no tool enables a broader overview of both research and studies. For these reasons, in order to create an Open Access platform, one of the most important aspects is the creation of tools that can facilitate both the sharing of archaeological spatial and temporal information as well as the easy reuse of the generated data. OpenHistoryMap is supposed to create a tool that is both a map of the archaeological world as well as a repository for the connected data within structured research papers. The project finds its roots first of all within the collective experience of ‘archaeology’ that refers to non-expert users, and in the second place within the academic scientific experience of research centres and universities. While the first approach gives an integrated and reliable picture of the cultural item, the second provides consistent and solid datasets with a perspective on the mixture of specific types of information.}, number={2}, journal={Archeologia e Calcolatori}, publisher={Edizioni All’Insegna del Giglio s.a.s.}, author={Bernardoni, Silvia and Montanari, Marco and Trojanis, Raffaele}, year={2017}, pages={539–548}, keywords={multimedia and web tools; data dissemination and education} }
+
+@article{Marsicano_2018, title={{GeoContext} and {CHContext}: Geographic Information in Cultural Heritage}, volume={XLII-4/W8}, ISSN={2194-9034}, url={http://dx.doi.org/10.5194/isprs-archives-XLII-4-W8-129-2018}, DOI={10.5194/isprs-archives-xlii-4-w8-129-2018}, journal={The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences}, publisher={Copernicus GmbH}, author={Marsicano, L. and Montanari, M.}, year={2018}, month=July, pages={129–132} }
+
+@inproceedings{Marsicano_2021, series={ArcheoFOSS 2019}, title={Participatory Models in Archaeology: Wiki and Open Access Platforms}, url={http://dx.doi.org/10.3390/environsciproc2021010012}, DOI={10.3390/environsciproc2021010012}, booktitle={ArcheoFOSS XIII Workshop---Open Software, Hardware, Processes, Data and Formats in Archaeological Research}, publisher={MDPI}, author={Marsicano, Lucia and Montanari, Marco and Bezzi, Luca and Bezzi, Alessandro}, year={2021}, month=Nov, pages={12}, collection={ArcheoFOSS 2019} }
+
+@article{gigli_montanari_marsicano_2024, address={IT}, title={Engaging the public: reviving history through the Social Simulacra model in participatory Public History projects}, volume={35}, ISSN={1120-6861, 2385-1953}, url={https://doi.org/10.19282/ac.35.2.2024.21}, DOI={10.19282/ac.35.2.2024.21}, abstractNote={Public history and participatory history initiatives are rapidly gaining momentum as they aim to democratize the historical narrative, involving communities and individuals in shaping their own historical experiences. This paper introduces a novel approach to these accomplishments by harnessing the power of the Social Simulacra Model. The model offers an innovative and participatory framework for public history projects, enabling individuals to actively engage with and contribute to historical narratives. By integrating the Social Simulacra Model into public history, this paper seeks to transform the traditional approach to historical storytelling. This model facilitates the creation of immersive, interactive historical simulations that enable participants to become part of the historical landscape. It fosters a deeper connection between individuals and the past by allowing them to take on roles, explore social dynamics, and make decisions within historical contexts. This paper also illustrates the potential of the Social Simulacra Model in enriching public history and participatory history projects by offering a new dimension of engagement and interaction with the past. It paves the way for a more inclusive, engaging, and participatory approach to historical storytelling, bridging the gap between academic history and public engagement.}, number={2}, journal={Archeologia e Calcolatori}, publisher={Edizioni All’Insegna del Giglio s.a.s.}, author={Gigli, Lorenzo and Montanari, Marco and Marsicano, Lucia}, year={2024}, pages={197–202} }
+
+@article{marsicano_montanari_2024, address={IT}, title={Entertainment buildings in the Roman empire: a quantitative approach}, volume={35}, ISSN={1120-6861, 2385-1953}, url={https://doi.org/10.19282/ac.35.2.2024.07}, DOI={10.19282/ac.35.2.2024.07}, abstractNote={The project features the creation of a webGIS containing heterogeneous data about entertainment buildings in the whole Roman Empire: stadiums, circuses, theaters, and amphitheaters. Information available in earlier studies have been integrated with more recent historical information, modern maps, and satellite data. This geo-database of the Roman structures gives access to information such as localization, name, country, if there are any archaeological remains and if the monument is still visible. The results of the presented work are useful to 1) analyze the relationship between buildings and surrounding lands, 2) perform advanced hypothesis about the accessibility to the structures or the role of these type of buildings in the urbanistic context, 3) understand relationship between entertainment and society and 4) identify concentrations of structures in certain regions. This research is mostly focused on the study of satellite images, published and historical sources. A substantial level of attention has been dedicated to the reusability and availability of the collected data.}, number={2}, journal={Archeologia e Calcolatori}, publisher={Edizioni All’Insegna del Giglio s.a.s.}, author={Marsicano, Lucia and Montanari, Marco}, year={2024}, pages={55–62} }
+
+@article{montanari_marsicano_2024, address={IT}, title={Simplifying contextualization of 3D model archives in webGIS: 3DModelCommons}, volume={35}, ISSN={1120-6861, 2385-1953}, url={https://doi.org/10.19282/ac.35.2.2024.27}, DOI={10.19282/ac.35.2.2024.27}, abstractNote={This paper presents a transformative approach that allows for the utilization of existing 3D models from diverse sources within a geographic context. It introduces the concept of external metadata, which describes these models, making them searchable, accessible, and seamlessly intergrated in webGIS environments using Three.js and MapLibre GL. This paper addresses the demand for the reuse of three-dimensional data representation in the geospatial domain and acknowledges the wealth of 3D models available from various sources. By introducing a standardized metadata schema, it establishes a structured framework for the incorporation of these models into webGIS systems. A central theme of this work is the development of a metadata standard that acts as a bridge between 3D models and webGIS environments granting it all information that can be used to correctly locate, scale and orient the models. It enables efficient searching, rendering, and utilization of these models within geographic contexts. Leveraging MapLibre GL JS and Three.js, the paper showcases how external metadata can significantly enhance the integration of 3D models into webGIS, thereby fostering a more versatile and comprehensive geospatial data exploration experience.}, number={2}, journal={Archeologia e Calcolatori}, publisher={Edizioni All’Insegna del Giglio s.a.s.}, author={Montanari, Marco and Marsicano, Lucia}, year={2024}, pages={255–262} }
+
+@inproceedings{Esposito_2024, title={Trace Analysis of Electric Micromobility and its Application for City Sensing}, url={http://dx.doi.org/10.1109/DS-RT62209.2024.00015}, DOI={10.1109/ds-rt62209.2024.00015}, booktitle={2024 28th International Symposium on Distributed Simulation and Real Time Applications (DS-RT)}, publisher={IEEE}, author={Esposito, Alfonso and Ciabattini, Leonardo and Sciullo, Luca and Montanari, Marco and Bononi, Luciano and Di Felice, Marco}, year={2024}, month=Oct, pages={34–41} }
+
+@inproceedings{Costagliola_2025, title={Interconnecting Urban Networks: A Novel Approach to Digital Twins Through GlassBox Adaptation}, url={http://dx.doi.org/10.5220/0013495100003953}, DOI={10.5220/0013495100003953}, booktitle={Proceedings of the 14th International Conference on Smart Cities and Green ICT Systems}, publisher={SCITEPRESS - Science and Technology Publications}, author={Costagliola, Andrea and Montanari, Marco and Bellavista, Paolo}, year={2025}, pages={193–204} }
+
+@misc{zenodo_7107339,
+doi = {10.5281/ZENODO.7107339},
+url = {https://zenodo.org/record/7107339},
+author = {Bogdani, Julian and Montanari, Marco},
+keywords = {digital archaeology, archaeological database, open source, archaeological information system, rest api},
+language = {en},
+title = {Towards Bradypus v5: Interconnecting the archaeological research},
+publisher = {Zenodo},
+year = {2022},
+copyright = {Creative Commons Attribution 4.0 International}
+}
+
+@misc{zenodo_7128795,
+doi = {10.5281/ZENODO.7128795},
+url = {https://zenodo.org/record/7128795},
+author = {Montanari, Marco and Marsicano, Lucia},
+keywords = {digital humanities, dh, open data, open data sicilia},
+language = {it},
+title = {Mappare il passato con dati aperti},
+publisher = {Zenodo},
+year = {2022},
+copyright = {Creative Commons Attribution 4.0 International}
+}
+
+@misc{zenodo_20310092,
+doi = {10.5281/ZENODO.20310092},
+url = {https://zenodo.org/doi/10.5281/zenodo.20310092},
+author = {Montanari, Marco},
+language = {en},
+title = {Inside Board Game Publishing},
+publisher = {Zenodo},
+year = {2026},
+copyright = {Creative Commons Attribution Share Alike 4.0 International}
+}
+
+@misc{figshare_24793536,
+doi = {10.6084/M9.FIGSHARE.24793536},
+url = {https://figshare.com/articles/presentation/Simplifying_contextualization_of_3D_model_archives_in_WebGIS_3DModel_Commons/24793536},
+author = {Montanari, Marco and Marsicano, Lucia},
+keywords = {Digital heritage, Applications in arts and humanities},
+title = {Simplifying contextualization of 3D model archives in WebGIS: 3DModel Commons},
+publisher = {figshare},
+year = {2023},
+copyright = {Creative Commons Attribution 4.0 International}
+}
+
+@misc{figshare_24805974,
+doi = {10.6084/M9.FIGSHARE.24805974},
+url = {https://figshare.com/articles/presentation/Engaging_the_Public_Reviving_History_Through_the_Social_Simulacra_Model_in_Participatory_Public_History_Projects/24805974},
+author = {Montanari, Marco and Gigli, Lorenzo and Marsicano, Lucia},
+keywords = {Natural language processing, Speech production, Critical heritage, museum and archive studies},
+title = {Engaging the Public: Reviving History Through the Social Simulacra Model in Participatory Public History Projects},
+publisher = {figshare},
+year = {2023},
+copyright = {Creative Commons Attribution 4.0 International}
+}
+
+@misc{figshare_24806001,
+doi = {10.6084/M9.FIGSHARE.24806001},
+url = {https://figshare.com/articles/presentation/Entertainment_buildings_in_the_roman_empire_a_quantitative_approach/24806001},
+author = {Marsicano, Lucia and Montanari, Marco},
+keywords = {Classical Greek and Roman history, Digital archaeology, Archaeological science},
+title = {Entertainment buildings in the roman empire: a quantitative approach},
+publisher = {figshare},
+year = {2023},
+copyright = {Creative Commons Attribution 4.0 International}
+}
+
+@misc{figshare_24967590,
+doi = {10.6084/M9.FIGSHARE.24967590},
+url = {https://figshare.com/articles/presentation/Open_History_Map_-_Mozilla_Festival/24967590},
+author = {Montanari, Marco and Marsicano, Lucia and Trojanis, Raffaele and Bernardoni, Silvia},
+keywords = {Digital heritage},
+title = {Open History Map - Mozilla Festival},
+publisher = {figshare},
+year = {2024},
+copyright = {Creative Commons Attribution 4.0 International}
+}
+
+@misc{figshare_24967596,
+doi = {10.6084/M9.FIGSHARE.24967596},
+url = {https://figshare.com/articles/presentation/Open_History_Map_at_SFSCon/24967596},
+author = {Montanari, Marco},
+keywords = {Digital heritage, Digital history, Digital archaeology},
+title = {Open History Map at SFSCon},
+publisher = {figshare},
+year = {2024},
+copyright = {Creative Commons Attribution 4.0 International}
+}
+
+@misc{figshare_24967668,
+doi = {10.6084/M9.FIGSHARE.24967668},
+url = {https://figshare.com/articles/media/OHM_Introduction_at_Archeofoss_2021/24967668},
+author = {Montanari, Marco},
+keywords = {Digital history},
+title = {OHM Introduction at Archeofoss 2021},
+publisher = {figshare},
+year = {2024},
+copyright = {Creative Commons Attribution 4.0 International}
+}
+
+@misc{figshare_25061984,
+doi = {10.6084/M9.FIGSHARE.25061984},
+url = {https://figshare.com/articles/media/Bologna_1115/25061984},
+author = {Marsicano, Lucia and Montanari, Marco},
+keywords = {Digital heritage},
+title = {Bologna 1115},
+publisher = {figshare},
+year = {2024},
+copyright = {Creative Commons Attribution 4.0 International}
+}
+
+@misc{figshare_27897396,
+doi = {10.6084/M9.FIGSHARE.27897396},
+url = {https://figshare.com/articles/presentation/Edutainment_e_Wikipedia/27897396},
+author = {Montanari, Marco},
+keywords = {Cartography and digital mapping},
+title = {Edutainment e Wikipedia},
+publisher = {figshare},
+year = {2024},
+copyright = {Creative Commons Attribution 4.0 International}
+}
+
+@misc{figshare_28106933,
+doi = {10.6084/M9.FIGSHARE.28106933},
+url = {https://figshare.com/articles/presentation/Strade_Cave_e_Teatri/28106933},
+author = {Montanari, Marco and Marsicano, Lucia},
+keywords = {Autonomous agents and multiagent systems, Modelling and simulation},
+title = {Strade, Cave e Teatri},
+publisher = {figshare},
+year = {2024},
+copyright = {Creative Commons Attribution 4.0 International}
+}
+
+@misc{figshare_28106945,
+doi = {10.6084/M9.FIGSHARE.28106945},
+url = {https://figshare.com/articles/presentation/Tangible_Revolutions/28106945},
+author = {Montanari, Marco},
+keywords = {Applications in arts and humanities},
+title = {Tangible Revolutions},
+publisher = {figshare},
+year = {2024},
+copyright = {Creative Commons Attribution 4.0 International}
+}
+
+@misc{figshare_28560527,
+doi = {10.6084/M9.FIGSHARE.28560527},
+url = {https://figshare.com/articles/presentation/Tantible_Revolutions_CAST_Firenze/28560527},
+author = {Montanari, Marco and Marsicano, Lucia},
+keywords = {Historical studies not elsewhere classified},
+title = {Tangible Revolutions @ CAST Firenze},
+publisher = {figshare},
+year = {2025},
+copyright = {Creative Commons Attribution 4.0 International}
+}
+
+@misc{figshare_29534027,
+doi = {10.6084/M9.FIGSHARE.29534027},
+url = {https://figshare.com/articles/presentation/Ecosistema_Open/29534027},
+author = {Montanari, Marco},
+keywords = {Spatial data and applications, Applied computing not elsewhere classified},
+title = {Ecosistema Open},
+publisher = {figshare},
+year = {2025},
+copyright = {Creative Commons Attribution 4.0 International}
+}
+
+@misc{figshare_30093925,
+doi = {10.6084/M9.FIGSHARE.30093925},
+url = {https://figshare.com/articles/presentation/Semantic_MediaWiki_data_description_transformation_and_integration/30093925},
+author = {Montanari, Marco},
+keywords = {Data engineering and data science},
+title = {Semantic MediaWiki data description, transformation and integration},
+publisher = {figshare},
+year = {2025},
+copyright = {Creative Commons Attribution 4.0 International}
+}
+
+@misc{figshare_33095330,
+doi = {10.6084/M9.FIGSHARE.33095330},
+url = {https://figshare.com/articles/presentation/_b_GeoBard_Semantic_Grounding_for_Geo-Aware_AI_Agents_b_/33095330},
+author = {Montanari, Marco},
+keywords = {Human-computer interaction},
+title = {GeoBard: Semantic Grounding for Geo-Aware AI Agents},
+publisher = {figshare},
+year = {2026},
+copyright = {Creative Commons Attribution 4.0 International}
+}
+
+@article{Montanari_2022_OHM_status,
+  title={Open History Map -- Status of the Project},
+  author={Montanari, Marco and Marsicano, Lucia and Trojanis, Raffaele and Bernardoni, Silvia and Gigli, Lorenzo},
+  journal={Archeomatica -- Tecnologie per i Beni Culturali},
+  year={2022},
+  url={https://doaj.org/article/2909e2ca001340e2ac2f148ec88f5596},
+  note={Web of Science WOS:000980750900004; no DOI}
+}</code></pre></div>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>M.Sc. and B.Sc. in Computer Science Engineering, University of Bologna. Developer at Laboratori Guglielmo Marconi (2009–2014) and Prometeia (2018–2019); co-founder and President of Open History Map since 2014. Wikipedia contributor since 2005, member of Mensa Italia. Interests: informatics, archaeology, software architecture, microservices, knowledge representation.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Built from <a href="https://github.com/sirmmo/academia">sirmmo/academia</a>. Data from ORCID, Crossref, DataCite, OpenAlex, Semantic Scholar, Zenodo and Figshare.</div>
+</footer>
+
+<script>
+  function flash(btn, label) {
+    const old = btn.textContent;
+    btn.textContent = label; btn.classList.add('done');
+    setTimeout(() => { btn.textContent = old; btn.classList.remove('done'); }, 1400);
+  }
+  async function copy(text, btn) {
+    try { await navigator.clipboard.writeText(text); flash(btn, 'Copied ✓'); }
+    catch (e) {
+      const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta);
+      ta.select(); const ok = document.execCommand('copy'); ta.remove();
+      flash(btn, ok ? 'Copied ✓' : 'Select & copy manually');
+    }
+  }
+  document.addEventListener('click', (ev) => {
+    const btn = ev.target.closest('button'); if (!btn) return;
+    if (btn.dataset.toggle) {
+      const el = document.getElementById(btn.dataset.toggle);
+      el.hidden = !el.hidden; btn.setAttribute('aria-expanded', String(!el.hidden));
+    } else if (btn.dataset.copyFrom) {
+      copy(document.querySelector('#' + btn.dataset.copyFrom + ' code').textContent, btn);
+    } else if (btn.dataset.copyText) {
+      copy(btn.dataset.copyText, btn);
+    }
+  });
+  const root = document.documentElement;
+  try { const t = localStorage.getItem('theme'); if (t) root.dataset.theme = t; } catch (e) {}
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    const dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme = dark ? 'light' : 'dark';
+    try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+  });
+</script>
+</body>
+</html>
