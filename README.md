@@ -2,7 +2,7 @@
 
 Publications, talks and research of Marco Montanari ([ORCID 0000-0001-5026-6083](https://orcid.org/0000-0001-5026-6083)).
 
-Site: https://sirmmo.github.io/academia/
+Site: https://ingmmo.com/academia/
 
 - `publications.bib`: BibTeX for every item (source of truth)
 - `publications.md`: readable list with housekeeping notes
